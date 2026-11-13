@@ -1,6 +1,9 @@
 # Odoo Inv2
 
-Aplicacion tipo Odoo, segundo programa
+Aplicación de inventario y reabastecimiento de escritorio en PySide6, inspirada
+en la vista de inventario de la imagen de referencia. Incluye árbol de
+ubicaciones, filtros por ubicación y tipo de regla, selección múltiple, reglas
+de reabastecimiento, órdenes locales, snooze y resúmenes.
 
 ## Requisitos
 
@@ -16,8 +19,14 @@ python -m pip install -r requirements.txt
 python -m Odoo_inv2
 ```
 
-La aplicación guarda sus datos en `%LOCALAPPDATA%\Odoo_inv2\invoices.sqlite3`
-(o en `~/Odoo_inv/invoices.sqlite3` si `LOCALAPPDATA` no está definido).
+La aplicación guarda el inventario en `%LOCALAPPDATA%\Odoo_inv2\inventory.sqlite3`
+(o en `~/Odoo_inv2/inventory.sqlite3` si `LOCALAPPDATA` no está definido).
+La primera ejecución crea productos, ubicaciones y existencias de demostración.
+
+«Order Once» y «Order» crean órdenes de reabastecimiento locales y actualizan
+las cantidades entrantes previstas. No conectan con proveedores externos ni
+envían órdenes a una instancia de Odoo. La regla «Auto» se guarda como
+configuración del producto; no inicia un servicio automático en segundo plano.
 
 ## Pruebas
 
@@ -25,4 +34,4 @@ La aplicación guarda sus datos en `%LOCALAPPDATA%\Odoo_inv2\invoices.sqlite3`
 python -m unittest discover -s Odoo_inv2/tests -v
 ```
 
-El paquete y todo el código fuente de la aplicación están en [Odoo_inv2](./Odoo_inv2).
+El paquete y el código fuente están en [Odoo_inv2](./Odoo_inv2).
