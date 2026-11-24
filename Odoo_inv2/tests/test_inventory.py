@@ -4,11 +4,18 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from Odoo_inv2.database import InventoryDatabase
+from Odoo_inv2.database import DEFAULT_DATABASE_PATH, InventoryDatabase
 from Odoo_inv2.models import Replenishment
 
 
 class InventoryDatabaseTests(unittest.TestCase):
+    def test_default_database_is_inside_project_data_directory(self) -> None:
+        project_root = Path(__file__).resolve().parent.parent.parent
+        self.assertEqual(
+            DEFAULT_DATABASE_PATH,
+            project_root / "data" / "inventory.sqlite3",
+        )
+
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()
         self.database = InventoryDatabase(

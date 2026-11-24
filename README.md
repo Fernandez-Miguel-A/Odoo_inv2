@@ -19,8 +19,9 @@ python -m pip install -r requirements.txt
 python -m Odoo_inv2
 ```
 
-La aplicación guarda el inventario en `%LOCALAPPDATA%\Odoo_inv2\inventory.sqlite3`
-(o en `~/Odoo_inv2/inventory.sqlite3` si `LOCALAPPDATA` no está definido).
+La aplicación guarda el inventario exclusivamente en
+`data/inventory.sqlite3`, dentro de la raíz del proyecto. Esta ruta no depende
+de `LOCALAPPDATA` ni del directorio personal del usuario.
 La primera ejecución crea productos, ubicaciones y existencias de demostración.
 
 «Order Once» y «Order» crean órdenes de reabastecimiento locales y actualizan
