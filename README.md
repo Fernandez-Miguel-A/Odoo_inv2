@@ -15,8 +15,8 @@ de reabastecimiento, órdenes locales, snooze y resúmenes.
 Desde la raíz del proyecto:
 
 ```powershell
-python -m pip install -r requirements.txt
-python -m Odoo_inv2
+py -3.13 -m pip install -r requirements.txt
+py -3.13 main.py
 ```
 
 La aplicación guarda el inventario exclusivamente en
@@ -32,7 +32,7 @@ configuración del producto; no inicia un servicio automático en segundo plano.
 ## Pruebas
 
 ```powershell
-python -m unittest discover -s Odoo_inv2/tests -v
+py -3.13 -m unittest discover -s Odoo_inv2/tests -v
 ```
 
 El paquete y el código fuente están en [Odoo_inv2](./Odoo_inv2).
